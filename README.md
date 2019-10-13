@@ -19,7 +19,7 @@ namespace app\controller;
 
 class Index 
 {
-  	use \liliuwei\think\Jump; 
+    use \liliuwei\think\Jump; 
     public function index()
     {
 //      return $this->error('error');
