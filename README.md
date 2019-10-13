@@ -13,7 +13,22 @@ composer require liliuwei/thinkphp-jump
 使用 use \liliuwei\think\Jump; 
 
 在所需控制器内引用该扩展即可：
+~~~php
+<?php
+namespace app\controller;
 
+class Index 
+{
+  	use \liliuwei\think\Jump; 
+    public function index()
+    {
+//      return $this->error('error');
+//      return $this->success('success');
+//      return $this->redirect('index/test');
+      return $this->result(['username' => 'liliuwei', 'sex' => '男']);  
+    }
+}
+~~~
 下面示例我在框架自带的BaseController里引入，以后所有需要使用跳转的类继承自带的基类即可
 
 以下是自带的基类
