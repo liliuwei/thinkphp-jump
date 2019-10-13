@@ -124,16 +124,11 @@ trait Jump
      * @param  array $with 隐式传参
      * @return void
      */
-    protected function redirect($url, $params = [], $code = 302, $with = [])
+    protected function redirect($url, $code = 302, $with = [])
     {
         $response = Response::create($url, 'redirect');
 
-        if (is_integer($params)) {
-            $code = $params;
-            $params = [];
-        }
-
-        $response->code($code)->params($params)->with($with);
+        $response->code($code)->with($with);
 
         throw new HttpResponseException($response);
     }
