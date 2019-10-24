@@ -22,10 +22,10 @@ class Index
     use \liliuwei\think\Jump; 
     public function index()
     {
-//      return $this->error('error');
-//      return $this->success('success');
-//      return $this->redirect('index/test');
-      return $this->result(['username' => 'liliuwei', 'sex' => '男']);  
+        //return $this->error('error');
+        //return $this->success('success','index/index');
+        //return $this->redirect('/admin/index/index');
+        return $this->result(['username' => 'liliuwei', 'sex' => '男']);  
     }
 }
 ~~~
@@ -139,25 +139,71 @@ namespace app\admin\controller;
 class Index extends \app\BaseController
 {
     public function demo1()
-        {
-            return $this->success('success');
-        }
-        
-        public function demo2()
-        {
-            return $this->error('error');
-        }
-            
-        public function demo3()
-        {
-            return $this->redirect('index/index');
-        }
-                
-        public function demo4()
-        {
-            return $this->result(['username' => 'liliuwei', 'sex' => '男']);  
-        }
-}
-~~~
+    {
+        /**
+         * 操作成功跳转的快捷方法
+         * @param  mixed $msg 提示信息
+         * @param  string $url 跳转的URL地址
+         * @param  mixed $data 返回的数据
+         * @param  integer $wait 跳转等待时间
+         * @param  array $header 发送的Header信息
+         */
+        // 一般用法
+        return $this->success('登录成功', 'index/index');
+        //完整用法
+        //return $this->success($msg = '登录成功',  $url = 'index/index', $data = '',  $wait = 3,  $header = []);
+    }
 
+    public function demo2()
+    {
+        /**
+         * 操作错误跳转的快捷方法
+         * @param  mixed $msg 提示信息
+         * @param  string $url 跳转的URL地址
+         * @param  mixed $data 返回的数据
+         * @param  integer $wait 跳转等待时间
+         * @param  array $header 发送的Header信息
+         */
+        // 一般用法
+        return $this->error('登录失败');
+        //return $this->success('登录失败','login/index');
+        //完整用法
+        //return $this->error($msg = '登录失败',  $url = 'login/index', $data = '',  $wait = 3,  $header = []);
+
+    }
+
+    public function demo3()
+    {
+        /**
+         * URL重定向
+         * @param  string $url 跳转的URL表达式
+         * @param  integer $code http code
+         * @param  array $with 隐式传参
+         */
+        //一般用法
+        //第一种方式：直接使用完整地址（/打头）
+        //return $this->redirect('/admin/index/index');
+        //第二种方式：如果你需要自动生成URL地址，应该在调用之前调用url函数先生成最终的URL地址。
+        return $this->redirect(url('index/index', ['name' => 'think']));
+        //return $this->redirect('http://www.thinkphp.cn');
+        //完整用法
+        //return $this->redirect($url= '/admin/index/index', $code = 302, $with = ['data' => 'hello']);
+    }
+
+    public function demo4()
+    {
+        /**
+         * 返回封装后的API数据到客户端
+         * @param  mixed $data 要返回的数据
+         * @param  integer $code 返回的code
+         * @param  mixed $msg 提示信息
+         * @param  string $type 返回数据格式
+         * @param  array $header 发送的Header信息
+         */
+        //一般用法
+        return $this->result(['username' => 'liliuwei', 'sex' => '男']);
+        //完整用法
+        //return $this->result($data=['username' => 'liliuwei', 'sex' => '男'], $code = 0, $msg = '', $type = '',  $header = []); 
+    }
+}
 ~~~

@@ -3,6 +3,7 @@
     "description": "适用于thinkphp6.0的跳转扩展",
     "keywords": ["thinkphp", "think-jump", "success","error","result","redirect"],
     "license": "Apache-2.0",
+    "type": "think-extend",
     "authors": [
         {
             "name": "liliuwei",
