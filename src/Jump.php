@@ -123,7 +123,7 @@ trait Jump
      * @param  array $with 隐式传参
      * @return void
      */
-    protected function redirect($url, $code = 302, $with = [])
+    protected function redirect($url = '', $code = 302, $with = [])
     {
         $response = Response::create($url, 'redirect');
 
