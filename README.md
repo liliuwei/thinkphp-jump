@@ -8,6 +8,16 @@
 composer require liliuwei/thinkphp-jump
 ~~~
 
+## 配置
+~~~php
+// 安装之后会在config目录里生成jump.php配置文件
+return[
+    // 默认跳转页面对应的模板文件
+    'dispatch_success_tmpl' => app()->getRootPath().'/vendor/liliuwei/thinkphp-jump/src/tpl/dispatch_jump.tpl',
+    'dispatch_error_tmpl'   => app()->getRootPath().'/vendor/liliuwei/thinkphp-jump/src/tpl/dispatch_jump.tpl',
+];
+~~~
+
 ## 用法示例
 
 使用 use \liliuwei\think\Jump; 
