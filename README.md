@@ -1,11 +1,17 @@
 # thinkphp-jump
 
-适用于thinkphp6.0的跳转扩展
+适用于thinkphp6.0+的跳转扩展
 
-## 安装
+## thinkphp6.0安装
 
 ~~~php
-composer require liliuwei/thinkphp-jump
+composer require liliuwei/thinkphp-jump=1.*
+~~~
+
+## thinkphp8.0安装
+
+~~~php
+composer require liliuwei/thinkphp-jump=2.*
 ~~~
 
 ## 配置
